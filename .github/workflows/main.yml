@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Redeploy services
 
 # Controls when the action will run. 
 on:
@@ -27,4 +27,6 @@ jobs:
           username: ${{ secrets.PI_USERNAME }}
           key: ${{ secrets.PI_SSH_KEY }}
           port: 22
-          script: whoami
+          script: |
+            whoami
+            ls -la
