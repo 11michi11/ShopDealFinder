@@ -1,0 +1,5 @@
+rootProject.name = 'ShopDealFinder'
+include 'ProductService'
+include 'DealFinderService'
+include 'RecipeService'
+
