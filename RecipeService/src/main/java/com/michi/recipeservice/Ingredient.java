@@ -1,17 +1,21 @@
 package com.michi.recipeservice;
 
 
+import com.michi.commons.Product;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 @Data
 public class Ingredient {
 
-    @Id
-    private String id;
-    private String name;
-    private double price;
-    private double pricePerKilo;
+    @DBRef
+    private Product product;
+    private double amount;
+    private Unit unit;
 
-
+    public Ingredient(Product product, double amount, Unit unit) {
+        this.product = product;
+        this.amount = amount;
+        this.unit = unit;
+    }
 }

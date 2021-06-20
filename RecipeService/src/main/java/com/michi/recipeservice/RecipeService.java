@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/recipes")
+//@RestController
+//@RequestMapping("/recipes")
 public class RecipeService {
 
     private final RecipeRepository recipeRepository;

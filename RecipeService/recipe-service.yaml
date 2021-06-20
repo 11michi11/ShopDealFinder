@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shop-deal-finder-recipe-service
+  name: shop-deal-finder-recipe-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shop-deal-finder-recipe-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: shop-deal-finder-recipe-service
+    spec:
+      containers:
+        - image: docker.io/11michi11/shop-deal-finder
+          name: shop-deal-finder
+          resources: {}
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shop-deal-finder-recipe-service
+  name: shop-deal-finder-recipe-service
+spec:
+  ports:
+    - name: 8080-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: shop-deal-finder-recipe-service
+  type: LoadBalancer
+status:
+  loadBalancer: {}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: recipe-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: pi
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: shop-deal-finder-recipe-service
+              servicePort: 8080
+

@@ -13,5 +13,8 @@ public class Recipe {
     private List<Ingredient> ingredients;
     private String preparation;
 
-
+    public Recipe(List<Ingredient> ingredients, String preparation) {
+        this.ingredients = ingredients;
+        this.preparation = preparation;
+    }
 }

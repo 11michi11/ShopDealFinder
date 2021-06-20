@@ -1,4 +1,23 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://pi:27017/db
+#      uri: mongodb://admin:password@mongodb-standalone-0.database:27017/db
+      uri: mongodb://admin:password@pi:32756/db
+  application:
+    name: recipe-service
+server:
+  port: 8080
+wavefront:
+  application:
+    name: console-availability
+management:
+  metrics:
+    export:
+      wavefront:
+        source: my-cloud-server
+        api-token: 3efa9701-0e0f-4d84-aac7-84746c5f592b
+        uri: https://wavefront.surf
+  endpoints:
+    web:
+      exposure:
+        include: health,info,wavefront

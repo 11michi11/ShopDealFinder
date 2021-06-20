@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      #      uri: mongodb://admin:password@mongodb-standalone-0.database:27017/db
+      uri: mongodb://admin:password@pi:32756/db

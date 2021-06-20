@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/DealFinderService" />
             <option value="$PROJECT_DIR$/ProductService" />
             <option value="$PROJECT_DIR$/RecipeService" />
+            <option value="$PROJECT_DIR$/commons" />
           </set>
         </option>
       </GradleProjectSettings>
