@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h2 class="col-sm-12 d-flex justify-content-center">Current food discounts in Netto</h2>
+  </div>
+  <div class="row justify-content-center">
+    <mat-list>
+      <mat-list-item *ngFor="let product of products">
+        <img mat-list-avatar src="{{product.image}}"/>
+        <h3 mat-line>{{product.name}}</h3>
+        <p mat-line>{{product.price}} DKK | {{product.discount}}% discount</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+
+
